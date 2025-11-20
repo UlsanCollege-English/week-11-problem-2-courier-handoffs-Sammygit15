@@ -18,10 +18,9 @@ jobs:
       uses: classroom-resources/autograding-python-grader@v1
       with:
         timeout: 10
-        setup-command: ''
-    - name: Install dependencies
-      run: |
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        setup-command: |
+          pip install -r requirements.txt
+          export PYTHONPATH=.
     - name: Check test results
       id: check_results
       run: |
